@@ -1,0 +1,81 @@
+.section {
+  background: #f4f1ea;
+  padding: 100px 80px;
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  gap: 96px;
+  align-items: start;
+}
+
+/* ── Left: sticky heading ────────────────────────────────── */
+
+.left {
+  position: sticky;
+  top: 120px;
+  border-top: 1px solid var(--border-subtle);
+  padding-top: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--graphite);
+}
+
+.heading {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(40px, 5.5vw, 88px);
+  text-transform: uppercase;
+  letter-spacing: -0.025em;
+  line-height: 1.05;
+  color: #0b0b0c;
+}
+
+.count {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: var(--graphite);
+  margin-top: 8px;
+}
+
+/* ── Right: accordion list ───────────────────────────────── */
+
+.right {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 1024px) {
+  .section {
+    padding: 80px 40px;
+  }
+  .inner {
+    gap: 56px;
+  }
+}
+
+@media (max-width: 860px) {
+  .section {
+    padding: 64px 24px;
+  }
+  .inner {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .left {
+    position: static;
+    top: auto;
+    padding-top: 24px;
+    gap: 16px;
+  }
+}

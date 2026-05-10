@@ -1,0 +1,77 @@
+.row {
+  border-top: 1px solid var(--border-subtle);
+}
+
+.trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 24px 0;
+  text-align: left;
+  cursor: pointer;
+}
+
+.num {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: var(--graphite);
+  flex-shrink: 0;
+  width: 28px;
+}
+
+.question {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 18px;
+  color: #0b0b0c;
+  line-height: 1.35;
+  flex: 1;
+  letter-spacing: -0.01em;
+}
+
+@media (max-width: 640px) {
+  .question {
+    font-size: 16px;
+  }
+  .trigger {
+    padding: 20px 0;
+    gap: 12px;
+  }
+  .answer {
+    font-size: 14px;
+  }
+}
+
+.icon {
+  font-family: var(--font-mono);
+  font-size: 20px;
+  color: var(--graphite);
+  transition: transform 240ms ease;
+  flex-shrink: 0;
+}
+
+/* Grid-based smooth accordion — no max-height hack */
+
+.body {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 300ms ease;
+}
+
+.bodyOpen {
+  grid-template-rows: 1fr;
+}
+
+.bodyInner {
+  overflow: hidden;
+}
+
+.answer {
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--graphite);
+  padding-bottom: 24px;
+}

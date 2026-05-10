@@ -1,0 +1,166 @@
+.section {
+  background: #0b0b0c;
+  padding: 100px 80px;
+}
+
+/* ── Eyebrow ─────────────────────────────────────────────── */
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(244, 241, 234, 0.3);
+  margin-bottom: 48px;
+  text-align: center;
+}
+
+/* ── Quote ───────────────────────────────────────────────── */
+
+.quote {
+  margin: 0;
+  padding: 48px 0;
+  text-align: center;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.quote::before {
+  content: "\201C";
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-family: var(--font-display);
+  font-size: clamp(48px, 8vw, 100px);
+  color: #e3b23c;
+  line-height: 1;
+}
+
+.quote::after {
+  content: "\201D";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  font-family: var(--font-display);
+  font-size: clamp(48px, 8vw, 100px);
+  color: #e3b23c;
+  line-height: 1;
+}
+
+.quoteLine {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(28px, 4.8vw, 64px);
+  line-height: 1.2;
+  max-width: 32ch;
+  margin: 0 auto;
+  letter-spacing: -0.02em;
+  color: #f4f1ea;
+}
+
+/* ── Divider ─────────────────────────────────────────────── */
+
+.divider {
+  height: 1px;
+  background: rgba(244, 241, 234, 0.08);
+  margin: 64px 0;
+}
+
+/* ── Paragraph ───────────────────────────────────────────── */
+
+.para {
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.85;
+  color: rgba(244, 241, 234, 0.55);
+}
+
+/* ── Specs grid ──────────────────────────────────────────── */
+
+.specsGrid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.specItem {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 28px 32px 28px 0;
+  border-left: 1px solid rgba(244, 241, 234, 0.08);
+  padding-left: 32px;
+}
+
+.specItem:first-child {
+  border-left: none;
+  padding-left: 0;
+}
+
+.specKey {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(244, 241, 234, 0.28);
+}
+
+.specVal {
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: rgba(244, 241, 234, 0.6);
+  line-height: 1.45;
+}
+
+@media (max-width: 1024px) {
+  .section {
+    padding: 80px 40px;
+  }
+  .specsGrid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px 0;
+  }
+  .specItem {
+    padding: 20px 24px 20px 24px;
+  }
+  .specItem:nth-child(3n + 1) {
+    border-left: none;
+    padding-left: 0;
+  }
+  .divider {
+    margin: 48px 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .section {
+    padding: 64px 24px;
+  }
+  .quote {
+    padding: 36px 0;
+  }
+  .para {
+    font-size: 15px;
+    line-height: 1.75;
+  }
+  .specsGrid {
+    grid-template-columns: 1fr 1fr;
+    gap: 18px 0;
+  }
+  .specItem {
+    padding: 14px 16px;
+  }
+  .specItem:nth-child(odd) {
+    border-left: none;
+    padding-left: 0;
+  }
+  .specItem:nth-child(even) {
+    border-left: 1px solid rgba(244, 241, 234, 0.08);
+    padding-left: 16px;
+  }
+  .divider {
+    margin: 40px 0;
+  }
+}

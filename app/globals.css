@@ -1,26 +1,37 @@
 @import "tailwindcss";
 
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --obsidian: #0B0B0C;
+  --bone: #F4F1EA;
+  --graphite: #5A5A5E;
+  --crimson: #B5121B;
+  --gold: #E3B23C;
+  --dark-1: #1A1A1C;
+  --dark-2: #2A2A2D;
+  --dark-3: #3C3C40;
+  --surface-2: #EAE6DC;
+  --border-subtle: #C8C4BB;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bone);
+  color: var(--obsidian);
+  overflow-x: hidden;
 }
+
+img { display: block; max-width: 100%; }
+button { cursor: pointer; border: none; background: none; font-family: inherit; }
+a { text-decoration: none; color: inherit; }
+
+::selection { background: var(--obsidian); color: var(--bone); }
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-track { background: var(--bone); }
+::-webkit-scrollbar-thumb { background: var(--graphite); }

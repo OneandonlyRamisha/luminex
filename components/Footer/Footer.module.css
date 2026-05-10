@@ -1,0 +1,134 @@
+.footer {
+  background: #0b0b0c;
+  padding: 64px 80px 48px;
+  border-top: 1px solid rgba(244, 241, 234, 0.05);
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 56px;
+  gap: 48px;
+  flex-wrap: wrap;
+}
+
+.logoLink {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.logoText {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #f4f1ea;
+}
+
+.tagline {
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: rgba(244, 241, 234, 0.35);
+  line-height: 1.75;
+  max-width: 240px;
+}
+
+.cols {
+  display: flex;
+  gap: 72px;
+  flex-wrap: wrap;
+}
+
+.colHead {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(244, 241, 234, 0.25);
+  margin-bottom: 20px;
+}
+
+.colLinks {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.flink {
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: rgba(244, 241, 234, 0.45);
+  transition: color 160ms;
+}
+
+.flink:hover {
+  color: rgba(244, 241, 234, 0.9);
+}
+
+.social {
+  display: flex;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.socialLink {
+  color: rgba(244, 241, 234, 0.35);
+  transition: color 160ms;
+  display: flex;
+  align-items: center;
+}
+
+.socialLink:hover {
+  color: rgba(244, 241, 234, 0.85);
+}
+
+.dimItem {
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: rgba(244, 241, 234, 0.22);
+}
+
+.bottom {
+  border-top: 1px solid rgba(244, 241, 234, 0.05);
+  padding-top: 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.copy {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: rgba(244, 241, 234, 0.18);
+  letter-spacing: 0.06em;
+}
+
+@media (max-width: 1024px) {
+  .footer {
+    padding: 56px 40px 40px;
+  }
+  .cols {
+    gap: 48px;
+  }
+}
+
+@media (max-width: 640px) {
+  .footer {
+    padding: 48px 24px 32px;
+  }
+  .top {
+    gap: 32px;
+    flex-direction: column;
+    margin-bottom: 40px;
+  }
+  .cols {
+    gap: 32px;
+    width: 100%;
+  }
+}

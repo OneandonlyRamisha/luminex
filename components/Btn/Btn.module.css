@@ -1,0 +1,22 @@
+.btn {
+  font-family: var(--font-body);
+  font-weight: 500;
+  border-radius: 9999px;
+  letter-spacing: 0.02em;
+  transition: background 180ms;
+  cursor: pointer;
+}
+
+.normal {
+  font-size: 14px;
+  padding: 14px 36px;
+}
+
+.small {
+  font-size: 12px;
+  padding: 8px 18px;
+}
+
+.full {
+  width: 100%;
+}

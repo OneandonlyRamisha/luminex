@@ -1,0 +1,227 @@
+.section {
+  background: #f4f1ea;
+  padding: 96px 80px;
+}
+
+.header {
+  margin-bottom: 56px;
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(11, 11, 12, 0.35);
+  margin-bottom: 16px;
+}
+
+.heading {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(28px, 3.5vw, 48px);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: #0b0b0c;
+}
+
+/* ── Grid ── */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  align-items: stretch;
+}
+
+/* ── Card ── */
+
+.card {
+  background: #ffffff;
+  border: 1px solid rgba(11, 11, 12, 0.08);
+  border-radius: 6px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* fixed height — identical on every card so image areas always align */
+.imgArea {
+  position: relative;
+  height: 340px;
+  flex-shrink: 0;
+  background: #ebebeb;
+}
+
+.body {
+  padding: 24px 24px 24px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.bodyTop {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.cat {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.nameRow {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.modelName {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(22px, 2.5vw, 36px);
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  color: #0b0b0c;
+}
+
+.georgian {
+  font-family: var(--font-display);
+  font-size: 13px;
+}
+
+.desc {
+  font-family: var(--font-body);
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--graphite);
+}
+
+.priceRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 8px;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.price {
+  font-family: var(--font-mono);
+  font-size: 20px;
+  font-weight: 500;
+  color: #0b0b0c;
+}
+
+.btn {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 500;
+  padding: 11px 22px;
+  border-radius: 9999px;
+  letter-spacing: 0.02em;
+  transition: opacity 180ms;
+  white-space: nowrap;
+}
+
+.btn:hover {
+  opacity: 0.85;
+}
+
+/* ── Bundle card overrides ── */
+
+.bundleCard {
+  background: #0b0b0c;
+  border-color: rgba(244, 241, 234, 0.08);
+  transform: translateY(-6px);
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.22);
+}
+
+/* bundle image area stays light so the mockup blends */
+.bundleImgArea {
+  background: #ebebeb;
+}
+
+.bundleBody {
+  background: #0b0b0c;
+}
+
+.bundleModelName {
+  color: #f4f1ea;
+}
+
+.bundleBadge {
+  display: inline-flex;
+  align-items: center;
+  background: #e3b23c;
+  color: #0b0b0c;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 5px 12px;
+  border-radius: 9999px;
+  align-self: flex-start;
+  margin-bottom: 4px;
+}
+
+.bundlePriceStack {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.priceWas {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: rgba(244, 241, 234, 0.35);
+  text-decoration: line-through;
+}
+
+.bundlePrice {
+  color: #f4f1ea;
+  font-size: 22px;
+}
+
+/* ── Responsive ── */
+
+@media (max-width: 1100px) {
+  .section {
+    padding: 80px 40px;
+  }
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .imgArea {
+    height: 320px;
+  }
+  .bundleCard {
+    transform: none;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.18);
+  }
+}
+
+@media (max-width: 640px) {
+  .section {
+    padding: 64px 20px;
+  }
+  .header {
+    margin-bottom: 36px;
+  }
+  .imgArea {
+    height: 260px;
+  }
+  .body {
+    padding: 20px;
+  }
+}

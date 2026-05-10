@@ -1,0 +1,279 @@
+/* ── Wrapper: consumes 200vh of page scroll space ────────── */
+
+.wrapper {
+  height: 200vh;
+  position: relative;
+}
+
+/* ── Section: pinned to viewport for the full 200vh ─────── */
+
+.section {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 55% 45%;
+  align-items: start;
+  background: var(--obsidian);
+  overflow: hidden;
+}
+
+/* ── Left: image ─────────────────────────────────────────── */
+
+.imageColumn {
+  height: 100vh;
+}
+
+.imageWrap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.modelIndicator {
+  position: absolute;
+  bottom: 36px;
+  left: 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  z-index: 2;
+}
+
+.indicatorNum {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  display: block;
+}
+
+/* ── Right: data column + sliding track ─────────────────── */
+
+.dataColumn {
+  height: 100vh;
+  overflow: hidden;
+  border-left: 1px solid rgba(244, 241, 234, 0.07);
+}
+
+.dataTrack {
+  height: 200vh;
+  will-change: transform;
+}
+
+.panel {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.panelInner {
+  width: 100%;
+  padding: 72px 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 44px;
+}
+
+/* ── Top block ──────────────────────────────────────────── */
+
+.top {
+  display: flex;
+  flex-direction: column;
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  margin-bottom: 28px;
+}
+
+.nameRow {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.modelName {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(36px, 4.5vw, 68px);
+  text-transform: uppercase;
+  letter-spacing: -0.025em;
+  line-height: 1.05;
+  color: #f4f1ea;
+}
+
+.georgian {
+  font-family: var(--font-display);
+  font-size: 15px;
+  letter-spacing: 0.01em;
+}
+
+.tagline {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 17px;
+  line-height: 1.45;
+  color: #f4f1ea;
+  margin-bottom: 14px;
+  letter-spacing: -0.01em;
+}
+
+.desc {
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.8;
+  color: rgba(244, 241, 234, 0.5);
+}
+
+/* ── Middle block ───────────────────────────────────────── */
+
+.middle {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.wavelengthBox {
+  border: 1px solid;
+  padding: 13px 18px;
+  display: inline-block;
+  align-self: flex-start;
+}
+
+.wavelengthText {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+}
+
+.specsTable {
+  width: 100%;
+}
+
+.specRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(244, 241, 234, 0.07);
+  gap: 16px;
+}
+
+.specKey {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  color: rgba(244, 241, 234, 0.4);
+}
+
+.specVal {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-align: right;
+}
+
+.designedFor {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(244, 241, 234, 0.3);
+}
+
+/* ── Bottom block ───────────────────────────────────────── */
+
+.bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.ctaBtn {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 500;
+  padding: 14px 32px;
+  border-radius: 9999px;
+  letter-spacing: 0.02em;
+  transition: opacity 180ms;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.ctaBtn:hover {
+  opacity: 0.85;
+}
+
+.price {
+  font-family: var(--font-mono);
+  font-size: 20px;
+  font-weight: 500;
+  color: #f4f1ea;
+}
+
+@media (max-width: 1024px) {
+  .panelInner {
+    padding: 56px 40px;
+    gap: 32px;
+  }
+}
+
+.panelImage {
+  display: none;
+}
+
+@media (max-width: 860px) {
+  /* Disable scroll-driven pinning: stack cards normally */
+  .wrapper {
+    height: auto;
+  }
+  .section {
+    position: static;
+    height: auto;
+    grid-template-columns: 1fr;
+  }
+  .imageColumn {
+    display: none;
+  }
+  .dataColumn {
+    height: auto;
+    overflow: visible;
+    border-left: none;
+  }
+  .dataTrack {
+    height: auto;
+    transform: none !important;
+  }
+  .panel {
+    height: auto;
+    display: block;
+    border-top: 1px solid rgba(244, 241, 234, 0.07);
+  }
+  .panelInner {
+    padding: 48px 24px;
+  }
+  .modelIndicator {
+    bottom: 20px;
+    left: 20px;
+  }
+  .panelImage {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 60vw;
+    min-height: 280px;
+    max-height: 420px;
+    overflow: hidden;
+  }
+}

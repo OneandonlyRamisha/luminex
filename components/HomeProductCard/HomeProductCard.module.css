@@ -1,0 +1,165 @@
+.card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 100vh;
+}
+
+.imageWrap {
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  min-height: 360px;
+}
+
+.imgNum {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: rgba(244, 241, 234, 0.45);
+  letter-spacing: 0.1em;
+}
+
+.textBlock {
+  padding: 72px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  box-sizing: border-box;
+  gap: 40px;
+}
+
+.cat {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  margin-bottom: 28px;
+}
+
+.nameRow {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.modelName {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(36px, 4.5vw, 68px);
+  text-transform: uppercase;
+  letter-spacing: -0.025em;
+  line-height: 1.05;
+}
+
+.georgian {
+  font-family: var(--font-display);
+  font-size: 15px;
+  letter-spacing: 0.01em;
+}
+
+.tagline {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 19px;
+  line-height: 1.45;
+  margin-bottom: 20px;
+  letter-spacing: -0.01em;
+}
+
+.desc {
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.specsTable {
+  margin-bottom: 36px;
+}
+
+.specRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 13px 0;
+  gap: 12px;
+}
+
+.specKey {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+}
+
+.specVal {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  text-align: right;
+}
+
+.ctaRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.ctaBtn {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 500;
+  padding: 14px 32px;
+  border-radius: 9999px;
+  letter-spacing: 0.02em;
+  transition: opacity 180ms;
+  cursor: pointer;
+}
+
+.ctaBtn:hover {
+  opacity: 0.85;
+}
+
+.price {
+  font-family: var(--font-mono);
+  font-size: 20px;
+  font-weight: 500;
+}
+
+@media (max-width: 1024px) {
+  .textBlock {
+    padding: 56px 40px;
+    gap: 32px;
+  }
+}
+
+@media (max-width: 860px) {
+  .card {
+    grid-template-columns: 1fr;
+    min-height: 0;
+  }
+  .imageWrap {
+    height: 60vh;
+    min-height: 340px;
+  }
+  .textBlock {
+    padding: 48px 24px;
+    height: auto;
+    gap: 28px;
+  }
+  .specsTable {
+    margin-bottom: 28px;
+  }
+}
+
+@media (max-width: 480px) {
+  .imageWrap {
+    height: 50vh;
+    min-height: 280px;
+  }
+}

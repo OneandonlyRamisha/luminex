@@ -1,0 +1,529 @@
+/* ── Section shell ───────────────────────────────────────── */
+
+.section {
+  background: #0B0B0C;
+  border-top: 1px solid rgba(244, 241, 234, 0.06);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle dot-grid texture */
+.section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(
+    circle,
+    rgba(244, 241, 234, 0.04) 1px,
+    transparent 1px
+  );
+  background-size: 32px 32px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Section header ──────────────────────────────────────── */
+
+.sectionHeader {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 28px 80px;
+  border-bottom: 1px solid rgba(244, 241, 234, 0.06);
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.headerLeft {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.headerTag {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(244, 241, 234, 0.55);
+}
+
+.headerDivider {
+  display: inline-block;
+  width: 24px;
+  height: 1px;
+  background: rgba(244, 241, 234, 0.2);
+}
+
+.headerSub {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  color: rgba(244, 241, 234, 0.25);
+}
+
+.headerRef {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: rgba(244, 241, 234, 0.2);
+}
+
+/* ── Stat cards ──────────────────────────────────────────── */
+
+.statsGrid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-bottom: 1px solid rgba(244, 241, 234, 0.06);
+}
+
+.statCard {
+  position: relative;
+  border-right: 1px solid rgba(244, 241, 234, 0.06);
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.statCard:last-child {
+  border-right: none;
+}
+
+.statCardVisible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.statCardInner {
+  padding: 56px 64px 52px;
+}
+
+.statTopRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.statIndex {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  color: rgba(244, 241, 234, 0.2);
+}
+
+.statLabel {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(244, 241, 234, 0.3);
+}
+
+.statNum {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(40px, 6vw, 88px);
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+  margin-bottom: 24px;
+}
+
+.statBody {
+  font-family: var(--font-body);
+  font-size: 13px;
+  line-height: 1.8;
+  color: rgba(244, 241, 234, 0.4);
+  max-width: 260px;
+}
+
+/* Bottom accent bar — appears on hover */
+.statAccentBar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.statCard:hover .statAccentBar {
+  opacity: 1;
+}
+
+/* ── Spectrum instrument ─────────────────────────────────── */
+
+.instrument {
+  position: relative;
+  z-index: 1;
+  padding: 56px 80px 48px;
+  border-bottom: 1px solid rgba(244, 241, 234, 0.06);
+}
+
+.instrumentHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 28px;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.instrumentLabel {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(244, 241, 234, 0.35);
+}
+
+.instrumentRange {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: rgba(244, 241, 234, 0.2);
+}
+
+/* The spectrum display panel */
+.spectrumDisplay {
+  position: relative;
+  height: 160px;
+  background: #0F0F11;
+  border: 1px solid rgba(244, 241, 234, 0.08);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 0;
+}
+
+/* Scanline grid */
+.scanGrid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(244, 241, 234, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(244, 241, 234, 0.018) 1px, transparent 1px);
+  background-size: 100% 25%, 10% 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Actual visible-light spectrum gradient */
+.spectrumGradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    #1a0033 0%,
+    #5500cc 4%,
+    #4400ff 12%,
+    #0055ff 20%,
+    #0099ee 28%,
+    #00cc88 36%,
+    #00ee33 44%,
+    #99ff00 50%,
+    #ffee00 57%,
+    #ffaa00 64%,
+    #ff4400 74%,
+    #cc0000 84%,
+    #550000 94%,
+    #1a0000 100%
+  );
+  opacity: 0.55;
+  z-index: 0;
+}
+
+/* Blocked region overlay */
+.blockedOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: rgba(11, 11, 12, 0.72);
+  z-index: 2;
+  border-right: none;
+}
+
+/* SVG transmission curve */
+.curveSvg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 4;
+}
+
+/* Y-axis labels */
+.yAxis {
+  position: absolute;
+  left: 10px;
+  top: 0;
+  bottom: 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.yLabel {
+  font-family: var(--font-mono);
+  font-size: 8px;
+  letter-spacing: 0.06em;
+  color: rgba(244, 241, 234, 0.18);
+}
+
+/* Cutoff marker */
+.cutoffCallout {
+  position: absolute;
+  top: 0;
+  bottom: 28px;
+  z-index: 6;
+  pointer-events: none;
+  transform: translateX(-50%);
+}
+
+.cutoffLine {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  border-left: 1px dashed;
+  opacity: 0.45;
+}
+
+.cutoffLabel {
+  position: absolute;
+  top: 8px;
+  left: calc(50% + 6px);
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+}
+
+/* Tick marks at bottom */
+.tickRow {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 28px;
+  z-index: 5;
+  border-top: 1px solid rgba(244, 241, 234, 0.08);
+  background: rgba(11, 11, 12, 0.6);
+}
+
+.tick {
+  position: absolute;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.tickLine {
+  width: 1px;
+  height: 4px;
+  background: rgba(244, 241, 234, 0.2);
+}
+
+.tickLabel {
+  font-family: var(--font-mono);
+  font-size: 8px;
+  letter-spacing: 0.04em;
+  color: rgba(244, 241, 234, 0.22);
+  white-space: nowrap;
+}
+
+/* Region labels */
+.regionLabels {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  right: 0;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.regionLabel {
+  position: absolute;
+  transform: translateX(-50%);
+  font-family: var(--font-mono);
+  font-size: 8px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(244, 241, 234, 0.2);
+}
+
+.spectrumNote {
+  margin-top: 16px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: rgba(244, 241, 234, 0.25);
+  line-height: 1.6;
+}
+
+/* ── Download bar ─────────────────────────────────────────── */
+
+.downloadBar {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 28px 80px;
+  border-top: 1px solid rgba(244, 241, 234, 0.06);
+  flex-wrap: wrap;
+}
+
+.downloadTag {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(244, 241, 234, 0.3);
+}
+
+.downloadBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 11px 22px;
+  border-radius: 2px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: opacity 0.15s, transform 0.15s;
+}
+
+.downloadBtn:hover { opacity: 0.85; transform: translateY(-1px); }
+
+/* ── Fallback table (when no downloadUrl) ────────────────── */
+
+.tableWrap {
+  position: relative;
+  z-index: 1;
+  padding: 64px 80px;
+  border-bottom: 1px solid rgba(244, 241, 234, 0.06);
+}
+
+.tableEyebrow {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(244, 241, 234, 0.25);
+  margin-bottom: 32px;
+}
+
+.table { display: flex; flex-direction: column; }
+
+.tableRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(244, 241, 234, 0.06);
+  gap: 16px;
+}
+
+.tableKey {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  color: rgba(244, 241, 234, 0.35);
+}
+
+.tableVal {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-align: right;
+}
+
+.certStrip {
+  position: relative;
+  z-index: 1;
+  padding: 28px 80px;
+  display: flex;
+  gap: 48px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.certItem {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  color: rgba(244, 241, 234, 0.18);
+}
+
+@media (max-width: 1024px) {
+  .sectionHeader,
+  .downloadBar,
+  .certStrip {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+  .instrument,
+  .tableWrap {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+  .statsGrid {
+    grid-template-columns: 1fr;
+  }
+  .statCard {
+    border-right: none;
+    border-bottom: 1px solid rgba(244, 241, 234, 0.06);
+  }
+  .statCard:last-child {
+    border-bottom: none;
+  }
+  .statCardInner {
+    padding: 40px 40px 36px;
+  }
+}
+
+@media (max-width: 640px) {
+  .sectionHeader,
+  .downloadBar,
+  .certStrip {
+    padding: 20px 24px;
+  }
+  .instrument {
+    padding: 40px 24px 32px;
+  }
+  .tableWrap {
+    padding: 48px 24px;
+  }
+  .statCardInner {
+    padding: 36px 24px;
+  }
+  .spectrumDisplay {
+    height: 140px;
+  }
+  .yAxis {
+    left: 6px;
+  }
+  .certStrip {
+    gap: 16px 24px;
+  }
+}
