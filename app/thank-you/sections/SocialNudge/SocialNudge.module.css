@@ -1,0 +1,155 @@
+.section {
+  background: #0b0b0c;
+  border-top: 1px solid rgba(244, 241, 234, 0.06);
+}
+
+/* ── text block ── */
+.textBlock {
+  padding: 120px 80px 56px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 20px;
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(244, 241, 234, 0.22);
+  margin: 0;
+}
+
+.headline {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(52px, 7.5vw, 108px);
+  letter-spacing: -0.03em;
+  line-height: 0.95;
+  color: #f4f1ea;
+  margin: 0;
+}
+
+.sub {
+  font-family: var(--font-body);
+  font-size: 16px;
+  color: #b5121b;
+  margin: 4px 0 0;
+}
+
+/* ── shared story card ── */
+.storyCard {
+  aspect-ratio: 9 / 16;
+  position: relative;
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.cardPlaceholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ── desktop grid (4 columns) ── */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 4px;
+  padding: 0 80px;
+}
+
+/* ── carousel (mobile only) ── */
+.carousel {
+  display: none;
+}
+
+.carouselViewport {
+  overflow: hidden;
+}
+
+.carouselTrack {
+  display: flex;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+
+.carouselSlide {
+  flex: 0 0 100%;
+  padding: 0 24px;
+  box-sizing: border-box;
+}
+
+.dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  padding: 20px 0 4px;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(244, 241, 234, 0.18);
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.25s, transform 0.25s;
+}
+
+.dotActive {
+  background: #b5121b;
+  transform: scale(1.35);
+}
+
+/* ── instagram handle ── */
+.handleWrap {
+  padding: 48px 80px 80px;
+  display: flex;
+  justify-content: center;
+}
+
+.handle {
+  font-family: var(--font-mono);
+  font-size: clamp(15px, 1.8vw, 20px);
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  border-bottom: 1px solid;
+  padding-bottom: 3px;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+/* ── tablet: 2×2 ── */
+@media (max-width: 900px) {
+  .textBlock {
+    padding: 80px 40px 48px;
+  }
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 0 40px;
+  }
+  .handleWrap {
+    padding: 40px 40px 64px;
+  }
+}
+
+/* ── mobile: single carousel ── */
+@media (max-width: 540px) {
+  .textBlock {
+    padding: 64px 24px 40px;
+  }
+  .grid {
+    display: none;
+  }
+  .carousel {
+    display: block;
+  }
+  .handleWrap {
+    padding: 32px 24px 56px;
+  }
+}
