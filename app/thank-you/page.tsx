@@ -8,10 +8,22 @@ import TestimonialGrid, {
 } from "@/components/TestimonialGrid/TestimonialGrid";
 import SocialNudge from "./sections/SocialNudge/SocialNudge";
 
-// Swap these out for real screenshot paths once you have them:
-//   TESTIMONIALS = ["/images/testimonials/t1.png", ...]
-// Until then, MOCKS renders automatically.
-const TESTIMONIALS: string[] = [];
+const TESTIMONIALS: string[] = [
+  "/testimonails/Screenshot%202026-06-04%20at%2015.39.58.png",
+  "/testimonails/Screenshot%202026-06-04%20at%2015.40.08.png",
+  "/testimonails/Screenshot%202026-06-04%20at%2015.40.17.png",
+  "/testimonails/Screenshot%202026-06-04%20at%2015.40.25.png",
+  "/testimonails/Screenshot%202026-06-04%20at%2015.40.32.png",
+  "/testimonails/Screenshot%202026-06-04%20at%2015.40.39.png",
+  "/testimonails/Screenshot%202026-06-04%20at%2015.40.59.png",
+  "/testimonails/Screenshot%202026-06-04%20at%2015.41.07.png",
+  "/testimonails/Screenshot%202026-06-04%20at%2015.41.14.png",
+  "/testimonails/Screenshot%202026-06-04%20at%2015.41.19.png",
+  "/testimonails/Screenshot%202026-06-04%20at%2015.41.23.png",
+  "/testimonails/Screenshot%202026-06-04%20at%2015.41.27.png",
+  "/testimonails/Screenshot%202026-06-04%20at%2015.41.32.png",
+  "/testimonails/Screenshot%202026-06-04%20at%2015.41.36.png",
+];
 
 const MOCKS: MockTestimonial[] = [
   {

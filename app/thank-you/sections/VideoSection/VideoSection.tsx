@@ -1,7 +1,7 @@
 "use client";
 import styles from "./VideoSection.module.css";
 
-const VIDEO_SRC = ""; // drop /videos/thank-you.mp4 into /public when ready
+const VIDEO_SRC = "/thankyou.mp4";
 
 export default function VideoSection() {
   return (
@@ -11,7 +11,6 @@ export default function VideoSection() {
           <video
             className={styles.video}
             src={VIDEO_SRC}
-            poster="/images/video-poster.png"
             controls
             playsInline
           />
