@@ -75,7 +75,7 @@ export default function SocialNudge() {
     const delta = touchStartX.current - e.changedTouches[0].clientX;
     if (Math.abs(delta) > 40) {
       setCurrent((prev) =>
-        delta > 0 ? (prev + 1) % COUNT : (prev - 1 + COUNT) % COUNT
+        delta > 0 ? (prev + 1) % COUNT : (prev - 1 + COUNT) % COUNT,
       );
     }
     touchStartX.current = null;

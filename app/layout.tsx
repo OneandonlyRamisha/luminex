@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, JetBrains_Mono, Noto_Serif_Georgian } from "next/font/google";
 import "./globals.css";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 const inter = Inter({
   variable: "--font-body",
@@ -36,7 +37,10 @@ export default function RootLayout({
       lang="en"
       className={`${inter.variable} ${jetbrainsMono.variable} ${notoSerifGeorgian.variable}`}
     >
-      <body>{children}</body>
+      <body>
+        {children}
+        <GoogleAnalytics gaId="G-PNWKGFJT1K" />
+      </body>
     </html>
   );
 }
